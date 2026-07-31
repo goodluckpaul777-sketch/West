@@ -35,8 +35,8 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
       <div className="relative rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl bg-black">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-10" />
         <img
-          src="/src/assets/images/aquarium_hero_1784280304257.jpg"
-          alt="Premium Aquascape Gallery"
+          src="/src/assets/images/nigerian_fish_hero_1785474681949.jpg"
+          alt="Nigerian Freshwater Tigerfish Hero"
           className="w-full h-[550px] md:h-[650px] object-cover opacity-60 filter brightness-75 scale-105"
           referrerPolicy="no-referrer"
         />
