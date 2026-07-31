@@ -21,7 +21,7 @@ export default function LiveStockView() {
         fish.scientificName.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    return [...list].sort((a, b) => a.commonName.localeCompare(b.commonName));
+    return [...list].sort((a, b) => parseInt(a.sn, 10) - parseInt(b.sn, 10));
   }, [searchTerm]);
 
   const handleCheckboxChange = (sn: string, checked: boolean) => {
