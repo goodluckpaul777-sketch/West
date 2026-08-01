@@ -23,10 +23,14 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
   const [zoomedFish, setZoomedFish] = useState<FishSpecies | null>(null);
   const [zoomScale, setZoomScale] = useState(1);
   
-  const filteredFishes = LIVESTOCK_DATA.filter(fish => 
-    fish.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    fish.scientificName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredFishes = React.useMemo(() => {
+    return [...LIVESTOCK_DATA]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .filter(fish => 
+        fish.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        fish.scientificName.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  }, [searchTerm]);
 
   return (
     <div className="space-y-12 pb-12">
