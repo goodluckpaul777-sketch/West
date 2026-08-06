@@ -1,10 +1,29 @@
 import React, { useState, useMemo } from "react";
-import { MessageSquare, Mail, Copy, Check, Search, Fish, Sparkles, ArrowDown } from "lucide-react";
+import { 
+  MessageSquare, 
+  Mail, 
+  Copy, 
+  Check, 
+  Search, 
+  Fish, 
+  Sparkles, 
+  ArrowDown, 
+  ZoomIn, 
+  X, 
+  Grid, 
+  List, 
+  Image as ImageIcon,
+  CheckCircle2,
+  Plus
+} from "lucide-react";
 import { NEW_LIVESTOCK_DATA, StockFish } from "../data/newLivestock";
 
 export default function LiveStockView() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [filterWithPhotosOnly, setFilterWithPhotosOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<"table" | "cards">("table");
   const [selectedItems, setSelectedItems] = useState<Record<string, number>>({});
+  const [zoomedFish, setZoomedFish] = useState<StockFish | null>(null);
   
   // Client Info
   const [clientName, setClientName] = useState("");
@@ -16,13 +35,22 @@ export default function LiveStockView() {
   const filteredFishes = useMemo(() => {
     let list = NEW_LIVESTOCK_DATA;
     if (searchTerm) {
-      list = NEW_LIVESTOCK_DATA.filter((fish) => 
-        fish.commonName.toLowerCase().includes(searchTerm.toLowerCase()) || 
-        fish.scientificName.toLowerCase().includes(searchTerm.toLowerCase())
+      const q = searchTerm.toLowerCase();
+      list = list.filter((fish) => 
+        fish.commonName.toLowerCase().includes(q) || 
+        fish.scientificName.toLowerCase().includes(q) ||
+        fish.sn.includes(q)
       );
     }
+    if (filterWithPhotosOnly) {
+      list = list.filter((fish) => !!fish.image);
+    }
     return [...list].sort((a, b) => parseInt(a.sn, 10) - parseInt(b.sn, 10));
-  }, [searchTerm]);
+  }, [searchTerm, filterWithPhotosOnly]);
+
+  const totalWithPhotosCount = useMemo(() => {
+    return NEW_LIVESTOCK_DATA.filter(f => !!f.image).length;
+  }, []);
 
   const handleCheckboxChange = (sn: string, checked: boolean) => {
     setSelectedItems(prev => {
@@ -51,7 +79,7 @@ export default function LiveStockView() {
   const generateMessage = () => {
     const itemsList = Object.entries(selectedItems).map(([sn, qty]) => {
       const fish = NEW_LIVESTOCK_DATA.find(f => f.sn === sn);
-      return `- ${fish?.commonName} (${fish?.scientificName}): ${qty} pc(s)`;
+      return `- S/N #${sn}: ${fish?.commonName} (${fish?.scientificName}): ${qty} pc(s)`;
     }).join("\n");
 
     return `Hello West Africa Fish Farm (WAGFF),
@@ -98,9 +126,12 @@ ${notes || "None"}
     <div className="space-y-12 pb-24">
       {/* Title & Description */}
       <div className="space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 font-mono text-xs uppercase tracking-wider">
+          <Fish className="w-3.5 h-3.5" /> 98 Certified Export Species Available
+        </div>
         <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight font-display uppercase">Available Stock List</h1>
-        <p className="text-zinc-400 font-mono text-sm max-w-2xl">
-          Browse our complete inventory below. Select the species and quantities you wish to acquire, fill in your details, and send us your inquiry directly.
+        <p className="text-zinc-400 font-mono text-sm max-w-3xl leading-relaxed">
+          Browse our complete commercial inventory below with authentic species imagery. Select your species, adjust quantities, fill in your contact details, and send an inquiry directly to our sales dispatch.
         </p>
       </div>
 
@@ -119,7 +150,7 @@ ${notes || "None"}
                 How to Send Messages & Place Stock Orders
               </h2>
               <p className="text-zinc-300 text-xs font-sans max-w-xl leading-relaxed">
-                Check species boxes in the table below, then click <strong>"Order via WhatsApp"</strong> or <strong>"Order via Email"</strong> to message us instantly (+234 803 670 8191).
+                Check species boxes in the list below, then click <strong>"Order via WhatsApp"</strong> or <strong>"Order via Email"</strong> to message us instantly (+234 803 670 8191).
               </p>
             </div>
           </div>
@@ -164,73 +195,259 @@ ${notes || "None"}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Left Column: Stock Table */}
+        {/* Left Column: Stock Inventory Table / Cards */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="flex items-center bg-zinc-900 border border-white/5 rounded-full px-4 py-3">
-            <Search className="w-5 h-5 text-zinc-500 mr-3" />
-            <input
-              type="text"
-              placeholder="Search by Common Name or Scientific Name..."
-              className="bg-transparent border-none text-white w-full focus:outline-none font-mono text-sm"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
+          
+          {/* Controls Bar: Search, Photos Filter, View Toggle */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="flex-1 flex items-center bg-zinc-900 border border-white/5 rounded-xl px-4 py-2.5">
+              <Search className="w-4 h-4 text-zinc-500 mr-2.5 flex-shrink-0" />
+              <input
+                type="text"
+                placeholder="Search common name, scientific name, S/N..."
+                className="bg-transparent border-none text-white w-full focus:outline-none font-mono text-xs"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              {searchTerm && (
+                <button 
+                  onClick={() => setSearchTerm("")} 
+                  className="text-zinc-500 hover:text-white p-1"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
 
-          <div className="bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-zinc-950/80 border-b border-white/5">
-                    <th className="p-4 font-mono text-xs uppercase tracking-wider text-zinc-500">Select</th>
-                    <th className="p-4 font-mono text-xs uppercase tracking-wider text-zinc-500">S/N</th>
-                    <th className="p-4 font-mono text-xs uppercase tracking-wider text-zinc-500">Common Name</th>
-                    <th className="p-4 font-mono text-xs uppercase tracking-wider text-zinc-500">Scientific Name</th>
-                    <th className="p-4 font-mono text-xs uppercase tracking-wider text-zinc-500">Qty</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5">
-                  {filteredFishes.map((fish, idx) => {
-                    const isSelected = !!selectedItems[fish.sn];
-                    return (
-                      <tr key={`${fish.sn}-${fish.commonName}-${idx}`} className={`hover:bg-white/5 transition-colors ${isSelected ? 'bg-yellow-500/5' : ''}`}>
-                        <td className="p-4">
-                          <input 
-                            type="checkbox" 
-                            checked={isSelected}
-                            onChange={(e) => handleCheckboxChange(fish.sn, e.target.checked)}
-                            className="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-yellow-500 focus:ring-yellow-500 cursor-pointer"
-                          />
-                        </td>
-                        <td className="p-4 text-xs font-mono text-zinc-400">{fish.sn}</td>
-                        <td className="p-4 text-sm font-medium text-white">{fish.commonName}</td>
-                        <td className="p-4 text-xs font-mono text-zinc-400 italic">{fish.scientificName}</td>
-                        <td className="p-4">
-                          {isSelected && (
-                            <input
-                              type="number"
-                              min="1"
-                              className="w-16 bg-zinc-950 border border-white/10 rounded px-2 py-1 text-white text-xs font-mono focus:outline-none focus:border-yellow-500"
-                              value={selectedItems[fish.sn] || 1}
-                              onChange={(e) => handleQuantityChange(fish.sn, parseInt(e.target.value) || 0)}
-                            />
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                  {filteredFishes.length === 0 && (
-                    <tr>
-                      <td colSpan={5} className="p-8 text-center text-zinc-500 font-mono text-sm">
-                        <Fish className="w-8 h-8 mx-auto mb-2 opacity-20" />
-                        No species found matching your search.
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setFilterWithPhotosOnly(!filterWithPhotosOnly)}
+                className={`px-3 py-2 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                  filterWithPhotosOnly 
+                    ? "bg-yellow-500 text-black font-bold shadow-md shadow-yellow-500/20" 
+                    : "bg-zinc-900 hover:bg-zinc-800 text-zinc-400 border border-white/5"
+                }`}
+                title="Toggle species with high-res photos"
+              >
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>Photos Only ({totalWithPhotosCount})</span>
+              </button>
+
+              <div className="flex items-center bg-zinc-900 border border-white/5 rounded-xl p-1">
+                <button
+                  onClick={() => setViewMode("table")}
+                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                    viewMode === "table" ? "bg-yellow-500 text-black font-bold" : "text-zinc-400 hover:text-white"
+                  }`}
+                  title="Table View"
+                >
+                  <List className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setViewMode("cards")}
+                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                    viewMode === "cards" ? "bg-yellow-500 text-black font-bold" : "text-zinc-400 hover:text-white"
+                  }`}
+                  title="Visual Cards View"
+                >
+                  <Grid className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
+
+          {/* TABLE VIEW */}
+          {viewMode === "table" ? (
+            <div className="bg-zinc-900/50 border border-white/5 rounded-2xl overflow-hidden shadow-xl">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-zinc-950/80 border-b border-white/5">
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500 text-center w-12">Select</th>
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500 w-14">S/N</th>
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500 w-16 text-center">Photo</th>
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500">Common Name</th>
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500">Scientific Name</th>
+                      <th className="p-3.5 font-mono text-xs uppercase tracking-wider text-zinc-500 w-24">Qty</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5 font-sans">
+                    {filteredFishes.map((fish, idx) => {
+                      const isSelected = !!selectedItems[fish.sn];
+                      return (
+                        <tr 
+                          key={`${fish.sn}-${fish.commonName}-${idx}`} 
+                          className={`hover:bg-white/5 transition-colors group ${isSelected ? 'bg-yellow-500/5' : ''}`}
+                        >
+                          <td className="p-3.5 text-center">
+                            <input 
+                              type="checkbox" 
+                              checked={isSelected}
+                              onChange={(e) => handleCheckboxChange(fish.sn, e.target.checked)}
+                              className="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-yellow-500 focus:ring-yellow-500 cursor-pointer"
+                            />
+                          </td>
+                          <td className="p-3.5 text-xs font-mono text-zinc-400">
+                            #{fish.sn}
+                          </td>
+                          <td className="p-2 text-center">
+                            {fish.image ? (
+                              <button
+                                type="button"
+                                onClick={() => setZoomedFish(fish)}
+                                className="relative w-11 h-11 rounded-lg overflow-hidden border border-yellow-500/30 bg-black group/thumb cursor-zoom-in inline-block shadow transition-transform hover:scale-105"
+                                title={`Click to view full photo of ${fish.commonName}`}
+                              >
+                                <img 
+                                  src={fish.image} 
+                                  alt={fish.commonName} 
+                                  className="w-full h-full object-cover"
+                                  referrerPolicy="no-referrer"
+                                />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
+                                  <ZoomIn className="w-3.5 h-3.5 text-yellow-400" />
+                                </div>
+                              </button>
+                            ) : (
+                              <div className="w-11 h-11 rounded-lg border border-white/5 bg-zinc-950/60 flex items-center justify-center mx-auto text-zinc-700">
+                                <Fish className="w-4 h-4" />
+                              </div>
+                            )}
+                          </td>
+                          <td className="p-3.5">
+                            <div className="text-sm font-medium text-white flex items-center gap-2">
+                              <span>{fish.commonName}</span>
+                              {fish.image && (
+                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+                                  Photo
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                          <td className="p-3.5 text-xs font-mono text-zinc-400 italic">
+                            {fish.scientificName}
+                          </td>
+                          <td className="p-3.5">
+                            {isSelected ? (
+                              <div className="flex items-center gap-1">
+                                <input
+                                  type="number"
+                                  min="1"
+                                  className="w-16 bg-zinc-950 border border-yellow-500/40 rounded px-2 py-1 text-white text-xs font-mono focus:outline-none focus:border-yellow-500"
+                                  value={selectedItems[fish.sn] || 1}
+                                  onChange={(e) => handleQuantityChange(fish.sn, parseInt(e.target.value) || 0)}
+                                />
+                                <span className="text-[10px] font-mono text-zinc-500">pcs</span>
+                              </div>
+                            ) : (
+                              <button
+                                onClick={() => handleCheckboxChange(fish.sn, true)}
+                                className="opacity-0 group-hover:opacity-100 text-[10px] font-mono px-2 py-1 rounded bg-zinc-800 hover:bg-yellow-500 hover:text-black text-zinc-300 transition-all flex items-center gap-1 cursor-pointer"
+                              >
+                                <Plus className="w-3 h-3" /> Select
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    {filteredFishes.length === 0 && (
+                      <tr>
+                        <td colSpan={6} className="p-12 text-center text-zinc-500 font-mono text-sm">
+                          <Fish className="w-10 h-10 mx-auto mb-3 opacity-20" />
+                          No species found matching your search.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            /* CARDS GRID VIEW */
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {filteredFishes.map((fish, idx) => {
+                const isSelected = !!selectedItems[fish.sn];
+                return (
+                  <div 
+                    key={`${fish.sn}-${fish.commonName}-${idx}`}
+                    className={`bg-zinc-900/50 border rounded-2xl p-4 flex flex-col justify-between transition-all ${
+                      isSelected 
+                        ? 'border-yellow-500/60 bg-yellow-500/5 shadow-lg shadow-yellow-500/5' 
+                        : 'border-white/5 hover:border-white/15'
+                    }`}
+                  >
+                    <div>
+                      {/* Card Image Banner */}
+                      <div 
+                        className="relative h-40 w-full rounded-xl overflow-hidden bg-black/60 border border-white/5 mb-3 cursor-zoom-in group/cardimg"
+                        onClick={() => fish.image && setZoomedFish(fish)}
+                      >
+                        {fish.image ? (
+                          <>
+                            <img 
+                              src={fish.image} 
+                              alt={fish.commonName}
+                              className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
+                              <ZoomIn className="w-3.5 h-3.5" />
+                            </div>
+                          </>
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center text-zinc-600 bg-zinc-950">
+                            <Fish className="w-8 h-8 mb-1 opacity-30" />
+                            <span className="text-[10px] font-mono text-zinc-600">Export Specimen</span>
+                          </div>
+                        )}
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/80 backdrop-blur rounded font-mono text-[10px] text-yellow-400 font-bold border border-yellow-500/20">
+                          S/N #{fish.sn}
+                        </div>
+                      </div>
+
+                      {/* Info */}
+                      <h4 className="text-base font-bold text-white mb-0.5">{fish.commonName}</h4>
+                      <p className="text-xs font-mono text-zinc-400 italic mb-4">{fish.scientificName}</p>
+                    </div>
+
+                    {/* Bottom Action */}
+                    <div className="pt-3 border-t border-white/5 flex items-center justify-between gap-3">
+                      <label className="flex items-center gap-2 cursor-pointer text-xs font-mono text-zinc-300">
+                        <input 
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={(e) => handleCheckboxChange(fish.sn, e.target.checked)}
+                          className="w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-yellow-500 focus:ring-yellow-500 cursor-pointer"
+                        />
+                        <span>{isSelected ? "Selected" : "Add to Order"}</span>
+                      </label>
+
+                      {isSelected && (
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[10px] font-mono text-zinc-500">Qty:</span>
+                          <input
+                            type="number"
+                            min="1"
+                            value={selectedItems[fish.sn] || 1}
+                            onChange={(e) => handleQuantityChange(fish.sn, parseInt(e.target.value) || 0)}
+                            className="w-16 bg-zinc-950 border border-yellow-500/40 rounded px-2 py-1 text-white text-xs font-mono focus:outline-none focus:border-yellow-500"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+              {filteredFishes.length === 0 && (
+                <div className="col-span-2 p-12 text-center text-zinc-500 font-mono text-sm bg-zinc-900/30 rounded-2xl border border-white/5">
+                  <Fish className="w-10 h-10 mx-auto mb-3 opacity-20" />
+                  No species found matching your search.
+                </div>
+              )}
+            </div>
+          )}
+
         </div>
 
         {/* Right Column: Order Form */}
@@ -294,7 +511,7 @@ ${notes || "None"}
 
             <div className="p-4 rounded-xl bg-zinc-950 border border-white/5 space-y-2 mb-6">
               <span className="text-[9px] font-mono uppercase text-zinc-500 block tracking-wider flex justify-between items-center">
-                Draft Message Preview
+                Draft Message Preview ({Object.keys(selectedItems).length} items)
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(generateMessage());
@@ -334,6 +551,57 @@ ${notes || "None"}
         </div>
       </div>
 
+      {/* Lightbox Zoom Modal for Stock List Photos */}
+      {zoomedFish && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setZoomedFish(null)}
+        >
+          <div 
+            className="bg-zinc-900 border border-yellow-500/40 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-4 border-b border-white/10 flex items-center justify-between">
+              <div>
+                <span className="text-yellow-500 font-mono text-xs font-bold uppercase">S/N #{zoomedFish.sn}</span>
+                <h3 className="text-lg font-bold text-white">{zoomedFish.commonName}</h3>
+                <p className="text-xs font-mono text-zinc-400 italic">{zoomedFish.scientificName}</p>
+              </div>
+              <button 
+                onClick={() => setZoomedFish(null)}
+                className="p-2 rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="relative max-h-[60vh] bg-black flex items-center justify-center p-2">
+              <img 
+                src={zoomedFish.image} 
+                alt={zoomedFish.commonName}
+                className="max-h-[55vh] w-auto max-w-full object-contain rounded-lg"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            <div className="p-4 bg-zinc-950 flex items-center justify-between gap-3">
+              <span className="text-xs font-mono text-zinc-400">
+                Official Specimen Photo
+              </span>
+              <button
+                onClick={() => {
+                  handleCheckboxChange(zoomedFish.sn, true);
+                  setZoomedFish(null);
+                }}
+                className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-mono font-bold text-xs rounded-xl uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-lg shadow-yellow-500/20"
+              >
+                <CheckCircle2 className="w-4 h-4" /> Add to Order
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Floating Bottom Quick Bar so users never miss how to send message */}
       <div className="fixed bottom-4 left-4 right-4 z-40 max-w-lg mx-auto bg-zinc-900/95 border-2 border-yellow-500/60 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl flex items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 min-w-0">
@@ -368,4 +636,3 @@ ${notes || "None"}
     </div>
   );
 }
-

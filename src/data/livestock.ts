@@ -3,6 +3,7 @@ import africanPikeImg from "../assets/images/hujeta_pike_lovable.png";
 import dolphinMormyridImg from "../assets/images/mormyrus_lovable.png";
 import congoTetraImg from "../assets/images/congo_tetra_lovable.png";
 import bloodFishImg from "../assets/images/blood_fish_lovable.png";
+import ropeFishImg from "../assets/images/rope_fish_lovable.png";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
   {
