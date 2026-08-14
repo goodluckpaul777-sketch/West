@@ -8,7 +8,7 @@ import LiveStockGalleryView from "./components/LiveStockGalleryView";
 import AboutView from "./components/AboutView";
 import ContactView from "./components/ContactView";
 import TermsView from "./components/TermsView";
-const logoImg = "/logo.png";
+const logoImg = "https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/service_images/aa23a8fb-94cb-437b-863a-85fef7990ed6/8b5812fd-ae01-4fe5-943b-eb716ad8ecd0/1785170932529-b7f3f163-1000492224-cropped-1785170904586.jpg";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>("home");
@@ -56,40 +56,25 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
           
           {/* Logo */}
-          <a 
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveTab("home");
-              setSelectedSpecies(null);
-            }}
-            className="flex items-center gap-3 group/logo-link"
-          >
+          <div className="flex items-center gap-3">
             <div 
-              onClick={(e) => {
-                e.stopPropagation();
-                setLogoZoomed(true);
-              }}
-              className="relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden border border-yellow-500/20 bg-white shadow-md shadow-yellow-500/5 cursor-zoom-in group/logo flex-shrink-0"
+              onClick={() => setLogoZoomed(true)}
+              className="relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden border border-yellow-500/20 bg-white shadow-md shadow-yellow-500/5 cursor-zoom-in group/logo"
               title="Click to zoom logo"
             >
-              <img 
-                src="/logo.png" 
-                alt="West African Fish Farm Logo" 
-                width="150" 
-                height="50" 
-                className="w-full h-full object-cover group-hover/logo:scale-110 transition-transform duration-300" 
-                referrerPolicy="no-referrer" 
-              />
+              <img src={logoImg} alt="West African Fish Farm Logo" className="w-full h-full object-cover group-hover/logo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/logo:opacity-100 flex items-center justify-center transition-opacity duration-200">
                 <ZoomIn className="w-4 h-4 text-white" />
               </div>
             </div>
-            <div className="leading-none text-left">
-              <span className="text-yellow-500 font-extrabold tracking-wider text-sm md:text-base font-display block uppercase group-hover/logo-link:text-yellow-400 transition-colors">WEST AFRICA FISH FARM</span>
+            <div 
+              onClick={() => { setActiveTab("home"); setSelectedSpecies(null); }}
+              className="leading-none text-left cursor-pointer hover:opacity-80 transition-opacity"
+            >
+              <span className="text-yellow-500 font-extrabold tracking-wider text-sm md:text-base font-display block uppercase">WEST AFRICA FISH FARM</span>
               <span className="text-zinc-400 font-semibold tracking-widest text-[9px] block font-mono mt-1">BEYOND FISHING</span>
             </div>
-          </a>
+          </div>
 
           {/* Desktop Navigation Link Tabs */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -195,44 +180,29 @@ export default function App() {
           
           {/* Brand Col */}
           <div className="space-y-4">
-            <a 
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveTab("home");
-                setSelectedSpecies(null);
-              }}
-              className="flex items-center gap-3 group/footerlogo-link"
-            >
+            <div className="flex items-center gap-3">
               <div 
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setLogoZoomed(true);
-                }}
-                className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border border-yellow-500/20 bg-white group/footerlogo cursor-zoom-in flex-shrink-0"
+                onClick={() => setLogoZoomed(true)}
+                className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border border-yellow-500/20 bg-white group/footerlogo cursor-zoom-in"
                 title="Click to zoom logo"
               >
-                <img 
-                  src="/logo.png" 
-                  alt="West African Fish Farm Logo" 
-                  width="150" 
-                  height="50" 
-                  className="w-full h-full object-cover group-hover/footerlogo:scale-110 transition-transform duration-300" 
-                  referrerPolicy="no-referrer" 
-                />
+                <img src={logoImg} alt="West African Fish Farm Logo Emblem" className="w-full h-full object-cover group-hover/footerlogo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/footerlogo:opacity-100 flex items-center justify-center transition-opacity duration-200">
                   <ZoomIn className="w-3.5 h-3.5 text-white" />
                 </div>
               </div>
-              <div className="text-left">
-                <span className="text-white font-bold tracking-wider font-display block group-hover/footerlogo-link:text-yellow-500 transition-colors uppercase">
+              <div 
+                onClick={() => { setActiveTab("home"); setSelectedSpecies(null); }}
+                className="cursor-pointer group"
+              >
+                <span className="text-white font-bold tracking-wider font-display block group-hover:text-yellow-500 transition-colors uppercase">
                   WEST AFRICA FISH FARM
                 </span>
                 <span className="text-yellow-500/80 font-mono text-[9px] tracking-widest block uppercase font-semibold">
                   BEYOND FISHING
                 </span>
               </div>
-            </a>
+            </div>
             <p className="text-zinc-400 font-sans leading-relaxed">
               Global leaders in the export and distribution of exotic West African freshwater specimens, marine reef life, and unique riverine imports.
             </p>

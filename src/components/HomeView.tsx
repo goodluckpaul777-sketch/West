@@ -49,8 +49,8 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
               title="Click logo to zoom"
             >
               <img 
-                src="/logo.png" 
-                alt="West African Fish Farm Logo" 
+                src="https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/service_images/aa23a8fb-94cb-437b-863a-85fef7990ed6/8b5812fd-ae01-4fe5-943b-eb716ad8ecd0/1785170932529-b7f3f163-1000492224-cropped-1785170904586.jpg" 
+                alt="West Africa Fish Farm Logo - Beyond Fishing" 
                 className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover bg-white shadow-inner group-hover:scale-105 transition-transform duration-300"
                 referrerPolicy="no-referrer"
               />
