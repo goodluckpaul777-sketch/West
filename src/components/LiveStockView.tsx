@@ -230,7 +230,7 @@ ${notes || "None"}
                 title="Toggle species with high-res photos"
               >
                 <ImageIcon className="w-3.5 h-3.5" />
-                <span>Photos Only ({totalWithPhotosCount})</span>
+                <span>{filterWithPhotosOnly ? `Photos Only (${totalWithPhotosCount})` : `Show All Species (98)`}</span>
               </button>
 
               <div className="flex items-center bg-zinc-900 border border-white/5 rounded-xl p-1">
@@ -303,15 +303,16 @@ ${notes || "None"}
                                   alt={fish.commonName} 
                                   className="w-full h-full object-cover"
                                   referrerPolicy="no-referrer"
+                                  onError={(e) => {
+                                    (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
+                                  }}
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
                                   <ZoomIn className="w-3.5 h-3.5 text-yellow-400" />
                                 </div>
                               </button>
                             ) : (
-                              <div className="w-11 h-11 rounded-lg border border-white/5 bg-zinc-950/60 flex items-center justify-center mx-auto text-zinc-700">
-                                <Fish className="w-4 h-4" />
-                              </div>
+                              <span className="text-zinc-600 font-mono text-xs">—</span>
                             )}
                           </td>
                           <td className="p-3.5">
@@ -379,32 +380,34 @@ ${notes || "None"}
                   >
                     <div>
                       {/* Card Image Banner */}
-                      <div 
-                        className="relative h-40 w-full rounded-xl overflow-hidden bg-black/60 border border-white/5 mb-3 cursor-zoom-in group/cardimg"
-                        onClick={() => fish.image && setZoomedFish(fish)}
-                      >
-                        {fish.image ? (
-                          <>
-                            <img 
-                              src={fish.image} 
-                              alt={fish.commonName}
-                              className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
-                              referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
-                              <ZoomIn className="w-3.5 h-3.5" />
-                            </div>
-                          </>
-                        ) : (
-                          <div className="w-full h-full flex flex-col items-center justify-center text-zinc-600 bg-zinc-950">
-                            <Fish className="w-8 h-8 mb-1 opacity-30" />
-                            <span className="text-[10px] font-mono text-zinc-600">Export Specimen</span>
+                      {fish.image ? (
+                        <div 
+                          className="relative h-44 w-full rounded-xl overflow-hidden bg-black border border-white/5 mb-3 cursor-zoom-in group/cardimg shadow-md"
+                          onClick={() => setZoomedFish(fish)}
+                        >
+                          <img 
+                            src={fish.image} 
+                            alt={fish.commonName}
+                            className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
+                            }}
+                          />
+                          <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
+                            <ZoomIn className="w-3.5 h-3.5" />
                           </div>
-                        )}
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/80 backdrop-blur rounded font-mono text-[10px] text-yellow-400 font-bold border border-yellow-500/20">
-                          S/N #{fish.sn}
+                          <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/80 backdrop-blur rounded font-mono text-[10px] text-yellow-400 font-bold border border-yellow-500/20">
+                            S/N #{fish.sn}
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div className="flex items-center justify-between mb-3 pt-1">
+                          <span className="px-2 py-0.5 bg-zinc-800 rounded font-mono text-[10px] text-yellow-400 font-bold border border-white/5">
+                            S/N #{fish.sn}
+                          </span>
+                        </div>
+                      )}
 
                       {/* Info */}
                       <h4 className="text-base font-bold text-white mb-0.5">{fish.commonName}</h4>

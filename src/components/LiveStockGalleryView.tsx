@@ -70,6 +70,9 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
                   alt={fish.name} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
+                  }}
                 />
                 
                 <div className="absolute top-4 left-4 flex gap-2">

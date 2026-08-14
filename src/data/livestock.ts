@@ -241,7 +241,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "An elongated, eel-like fish known for its prehistoric armor-like scales, friendly behavior, and peaceful nature. Requires a tight-fitting lid as they are known escape artists.",
     origin: "West African Rivers (Prehistoric Specimen)",
-    image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1779843879999_1779841066099.png",
+    image: ropeFishImg,
     isFeatured: true,
   },
   {
