@@ -62,7 +62,7 @@ export default function App() {
               className="relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden border border-yellow-500/20 bg-white shadow-md shadow-yellow-500/5 cursor-zoom-in group/logo"
               title="Click to zoom logo"
             >
-              <img src={logoImg} alt="WAGFF Logo" className="w-full h-full object-cover group-hover/logo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
+              <img src={logoImg} alt="West African Fish Farm Logo" className="w-full h-full object-cover group-hover/logo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/logo:opacity-100 flex items-center justify-center transition-opacity duration-200">
                 <ZoomIn className="w-4 h-4 text-white" />
               </div>
@@ -117,6 +117,7 @@ export default function App() {
           <div className="lg:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-900 text-zinc-300 hover:text-white"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -185,7 +186,7 @@ export default function App() {
                 className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border border-yellow-500/20 bg-white group/footerlogo cursor-zoom-in"
                 title="Click to zoom logo"
               >
-                <img src={logoImg} alt="WAGFF Logo" className="w-full h-full object-cover group-hover/footerlogo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
+                <img src={logoImg} alt="West African Fish Farm Logo Emblem" className="w-full h-full object-cover group-hover/footerlogo:scale-110 transition-transform duration-300" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/footerlogo:opacity-100 flex items-center justify-center transition-opacity duration-200">
                   <ZoomIn className="w-3.5 h-3.5 text-white" />
                 </div>

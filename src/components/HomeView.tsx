@@ -37,7 +37,7 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-10" />
         <img
           src={nigerianFishHero}
-          alt="Nigerian Freshwater Tigerfish Hero"
+          alt="Nigerian Freshwater Fish Farming and Exotic Specimen Export"
           className="w-full h-[550px] md:h-[650px] object-cover opacity-60 filter brightness-75 scale-105"
           referrerPolicy="no-referrer"
         />
@@ -50,7 +50,7 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
             >
               <img 
                 src="https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/service_images/aa23a8fb-94cb-437b-863a-85fef7990ed6/8b5812fd-ae01-4fe5-943b-eb716ad8ecd0/1785170932529-b7f3f163-1000492224-cropped-1785170904586.jpg" 
-                alt="West Africa Fish Farm Logo Cover" 
+                alt="West Africa Fish Farm Logo - Beyond Fishing" 
                 className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover bg-white shadow-inner group-hover:scale-105 transition-transform duration-300"
                 referrerPolicy="no-referrer"
               />
@@ -70,14 +70,14 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
           </div>
           
           <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none uppercase font-display">
-            PREMIUM FISH STOCK
+            WEST AFRICAN FISH FARM
             <span className="block mt-2 text-2xl md:text-4xl font-light italic text-yellow-500 normal-case font-serif tracking-normal">
-              Available for Global Export
+              Fish Farming & Aquaculture in Nigeria
             </span>
           </h1>
 
           <p className="text-zinc-400 text-sm md:text-base leading-relaxed max-w-2xl font-sans font-light">
-            Directly sourcing the finest freshwater specimens. Connect with our experts via WhatsApp for the latest stock arrivals, live pricing, and shipping logistics.
+            Providing premium quality fish farming, native freshwater livestock, and professional aquaculture solutions in Nigeria. Connect with our experts via WhatsApp for the latest stock arrivals, live pricing, and global air freight logistics.
           </p>
 
           <div className="pt-6">
@@ -303,8 +303,9 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
               <div className="relative h-48 overflow-hidden bg-black">
                 <img
                   src={species.image}
-                  alt={species.name}
+                  alt={`${species.name} (${species.scientificName}) - West African freshwater species`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                 />
                 

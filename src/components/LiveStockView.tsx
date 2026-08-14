@@ -300,8 +300,9 @@ ${notes || "None"}
                               >
                                 <img 
                                   src={fish.image} 
-                                  alt={fish.commonName} 
+                                  alt={`${fish.commonName} (${fish.scientificName})`} 
                                   className="w-full h-full object-cover"
+                                  loading="lazy"
                                   referrerPolicy="no-referrer"
                                   onError={(e) => {
                                     (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
@@ -387,8 +388,9 @@ ${notes || "None"}
                         >
                           <img 
                             src={fish.image} 
-                            alt={fish.commonName}
+                            alt={`${fish.commonName} (${fish.scientificName})`}
                             className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
+                            loading="lazy"
                             referrerPolicy="no-referrer"
                             onError={(e) => {
                               (e.currentTarget.parentElement as HTMLElement).style.display = 'none';

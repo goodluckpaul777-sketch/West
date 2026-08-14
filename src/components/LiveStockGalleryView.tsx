@@ -67,8 +67,9 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
               >
                 <img 
                   src={fish.image} 
-                  alt={fish.name} 
+                  alt={`${fish.name} (${fish.scientificName}) - West African Fish Farm specimen`} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
