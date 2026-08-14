@@ -1,6 +1,6 @@
 {
   "name": "West Africa Fish Farm",
-  "description": "West African Fish Farm — Fish Farming & Aquaculture in Nigeria.",
+  "description": "West African Fish Farm provides quality fish farming, native freshwater livestock, and aquaculture solutions in Nigeria.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
