@@ -302,11 +302,8 @@ ${notes || "None"}
                                   src={fish.image} 
                                   alt={`${fish.commonName} (${fish.scientificName})`} 
                                   className="w-full h-full object-cover"
-                                  loading="lazy"
+                                  loading="eager"
                                   referrerPolicy="no-referrer"
-                                  onError={(e) => {
-                                    (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
-                                  }}
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
                                   <ZoomIn className="w-3.5 h-3.5 text-yellow-400" />
@@ -390,11 +387,8 @@ ${notes || "None"}
                             src={fish.image} 
                             alt={`${fish.commonName} (${fish.scientificName})`}
                             className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
-                            loading="lazy"
+                            loading="eager"
                             referrerPolicy="no-referrer"
-                            onError={(e) => {
-                              (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
-                            }}
                           />
                           <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
                             <ZoomIn className="w-3.5 h-3.5" />
