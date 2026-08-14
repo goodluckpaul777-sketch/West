@@ -1,7 +1,7 @@
-import africanPikeImg from "../assets/images/hujeta_pike_lovable.png";
-import congoTetraImg from "../assets/images/congo_tetra_lovable.png";
-import bloodFishImg from "../assets/images/blood_fish_lovable.png";
-import dolphinMormyridImg from "../assets/images/mormyrus_lovable.png";
+import congoTetraImg from "../assets/images/1785495106955.png";
+import africanPikeImg from "../assets/images/1785495443065.png";
+import bloodFishImg from "../assets/images/1785517528776.png";
+import dolphinMormyridImg from "../assets/images/1785518870024.png";
 
 // Direct High-Resolution CDN Images for West African Livestock
 const abaAbaImg = "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1783473933773_IMG-20260706-WA0025.jpg";

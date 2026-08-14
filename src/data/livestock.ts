@@ -1,8 +1,8 @@
 import { FishSpecies, WaterType, Temperament, CareLevel, StockStatus } from "../types";
-import africanPikeImg from "../assets/images/hujeta_pike_lovable.png";
-import dolphinMormyridImg from "../assets/images/mormyrus_lovable.png";
-import congoTetraImg from "../assets/images/congo_tetra_lovable.png";
-import bloodFishImg from "../assets/images/blood_fish_lovable.png";
+import congoTetraImg from "../assets/images/1785495106955.png";
+import africanPikeImg from "../assets/images/1785495443065.png";
+import bloodFishImg from "../assets/images/1785517528776.png";
+import dolphinMormyridImg from "../assets/images/1785518870024.png";
 import ropeFishImg from "../assets/images/rope_fish_lovable.png";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
