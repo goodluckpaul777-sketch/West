@@ -1,7 +1,9 @@
-import congoTetraImg from "../assets/images/1785495106955.png";
-import africanPikeImg from "../assets/images/1785495443065.png";
-import bloodFishImg from "../assets/images/1785517528776.png";
-import dolphinMormyridImg from "../assets/images/1785518870024.png";
+import congoTetraImg from "../assets/images/1000502148.jpg";
+import africanPikeImg from "../assets/images/1000502149.jpg";
+import bloodFishImg from "../assets/images/1000502536.jpg";
+import dolphinMormyridImg from "../assets/images/1000502573.jpg";
+import whiptailCatfishImg from "../assets/images/IMG_20250916_155228.jpg";
+import ropeFishImg from "../assets/images/fish_proper.png";
 
 // Direct High-Resolution CDN Images for West African Livestock
 const abaAbaImg = "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1783473933773_IMG-20260706-WA0025.jpg";
@@ -17,7 +19,6 @@ const marbleKnifeImg = "https://storage.googleapis.com/dala-prod-public-storage/
 const mbuPufferImg = "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1783472096434_1778420191965.png";
 const rainbowCrabImg = "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1783470991659_1783470958603.png";
 const redEyeImg = "https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/shop_product_images/products/4ffd2e1c-59f6-4985-9243-82801337fa37/1785169061095-drw9mthgst.png";
-const ropeFishImg = "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1779843879999_1779841066099.png";
 const snakeHeadImg = "https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/shop_product_images/products/4ffd2e1c-59f6-4985-9243-82801337fa37/1785168629604-cw6k7ckebw.png";
 const spinyEelImg = "https://kpsqyyxkuvxlafrfyweo.supabase.co/storage/v1/object/public/shop_product_images/products/4ffd2e1c-59f6-4985-9243-82801337fa37/1785169076883-hh36491ia6j.png";
 
@@ -48,16 +49,16 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "17", commonName: "Atya Shrimps (small)", scientificName: "Atya gabonensis", image: atyaShrimpImg },
   { sn: "18", commonName: "Bifasciatus", scientificName: "Epiplatys bifasciatus" },
   { sn: "19", commonName: "Big Shrimps", scientificName: "Crustabus species" },
-  { sn: "20", commonName: "Blood Fish", scientificName: "Phractolemus ansorgii", image: bloodFishImg },
+  { sn: "20", commonName: "Blood Fish", scientificName: "Phractolaemus ansorgii", image: bloodFishImg },
   { sn: "21", commonName: "Blue Fish", scientificName: "Aplocheichys myersi" },
   { sn: "22", commonName: "Blue Panchare", scientificName: "Epiplatys species" },
   { sn: "23", commonName: "Butter Fly (med./big)", scientificName: "Pantodon bucholzi", image: butterflyImg },
   { sn: "24", commonName: "Butter Fly (small)", scientificName: "Pantodon bucholzi", image: butterflyImg },
   { sn: "25", commonName: "Chromidotilapia", scientificName: "Chromidotilapia guentheri" },
-  { sn: "26", commonName: "Congo Tetra", scientificName: "Phenacogramus interruptus", image: congoTetraImg },
+  { sn: "26", commonName: "Congo Tetra", scientificName: "Phenacogrammus interruptus", image: congoTetraImg },
   { sn: "27", commonName: "Costae Tetra", scientificName: "Moenkhausia costae", image: costaeTetraImg },
   { sn: "28", commonName: "Debauwie", scientificName: "Eutropielus debauwei", image: glassCatImg },
-  { sn: "29", commonName: "Dolphins", scientificName: "Mommyyrus longirostris", image: dolphinMormyridImg },
+  { sn: "29", commonName: "Dolphins", scientificName: "Mormyrus longirostris / Mormyrus tapirus", image: dolphinMormyridImg },
   { sn: "30", commonName: "Electric Catfish", scientificName: "Malapterurus electricus", image: electricCatfishImg },
   { sn: "31", commonName: "Electric fish (med./big)", scientificName: "Malapterurus electricus", image: electricCatfishImg },
   { sn: "32", commonName: "Electric fish (small)", scientificName: "Malapterurus electricus", image: electricCatfishImg },
@@ -116,8 +117,8 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "85", commonName: "Red Eye", scientificName: "Arnoldichytis spilopterus", image: redEyeImg },
   { sn: "86", commonName: "Red Tail Alestes", scientificName: "Microalestes stormsi" },
   { sn: "87", commonName: "Reed/Rope Fish", scientificName: "Erpetoichythys calabericus", image: ropeFishImg },
-  { sn: "88", commonName: "Round Nose", scientificName: "Pollimyrus nigripinis" },
-  { sn: "89", commonName: "Short Nose", scientificName: "Mercusenius angolensis" },
+  { sn: "88", commonName: "Round Nose", scientificName: "Pollimyrus nigripinis", image: dolphinMormyridImg },
+  { sn: "89", commonName: "Short Nose", scientificName: "Mercusenius angolensis", image: dolphinMormyridImg },
   { sn: "90", commonName: "Snake Head", scientificName: "Channa striata / Channa asiatica", image: snakeHeadImg },
   { sn: "91", commonName: "Spiny Eel", scientificName: "Afromastacembelus frenatus", image: spinyEelImg },
   { sn: "92", commonName: "Spotted Cat", scientificName: "Paraochenoglanis migrostoma" },
@@ -126,5 +127,5 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "95", commonName: "U.D.Catfish", scientificName: "Synodontis nigriventris" },
   { sn: "96", commonName: "Under Water Frogs", scientificName: "Pipa-pipa" },
   { sn: "97", commonName: "W.A.Tree Frogs", scientificName: "Hyperoluis species" },
-  { sn: "98", commonName: "Whiptail Catfish", scientificName: "Phractura ansorgi" }
+  { sn: "98", commonName: "Whiptail Catfish", scientificName: "Phractura ansorgi", image: whiptailCatfishImg }
 ];

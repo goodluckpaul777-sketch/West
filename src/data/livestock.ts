@@ -1,26 +1,27 @@
 import { FishSpecies, WaterType, Temperament, CareLevel, StockStatus } from "../types";
-import congoTetraImg from "../assets/images/1785495106955.png";
-import africanPikeImg from "../assets/images/1785495443065.png";
-import bloodFishImg from "../assets/images/1785517528776.png";
-import dolphinMormyridImg from "../assets/images/1785518870024.png";
-import ropeFishImg from "../assets/images/rope_fish_lovable.png";
+import congoTetraImg from "../assets/images/1000502148.jpg";
+import africanPikeImg from "../assets/images/1000502149.jpg";
+import bloodFishImg from "../assets/images/1000502536.jpg";
+import dolphinMormyridImg from "../assets/images/1000502573.jpg";
+import whiptailCatfishImg from "../assets/images/IMG_20250916_155228.jpg";
+import ropeFishImg from "../assets/images/fish_proper.png";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
   {
-    id: "fff-01",
-    name: "Congo Tetra",
-    scientificName: "Phenacogrammus interruptus",
+    id: "fff-07",
+    name: "Reed Fish (Ropefish)",
+    scientificName: "Erpetoichthys calabaricus",
     waterType: WaterType.Freshwater,
     temperament: Temperament.Peaceful,
     careLevel: CareLevel.Easy,
-    minTankSize: 30,
-    diet: "Omnivore (Flakes, micro-pellets, daphnia, bloodworms)",
-    tempRange: "73°F - 82°F",
-    phRange: "6.0 - 7.5",
+    minTankSize: 45,
+    diet: "Carnivore (Bloodworms, earthworms, carnivore sinking pellets, brine shrimp)",
+    tempRange: "72°F - 82°F",
+    phRange: "6.5 - 7.5",
     status: StockStatus.InStock,
-    description: "Iridescent schooling showpiece with flowing veil fins. Metallic scales reflecting shimmering gold, green, and violet hues.",
-    origin: "Congo River Basin (West & Central Africa)",
-    image: congoTetraImg,
+    description: "An extraordinary prehistoric serpentine fish with olive-green ganoid armor scales, expressive pectoral fins, and a peaceful bottom-dwelling temperament.",
+    origin: "West Africa (Nigeria, Niger Delta, Cameroon)",
+    image: ropeFishImg,
     isFeatured: true,
   },
   {
@@ -41,18 +42,52 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     isFeatured: true,
   },
   {
+    id: "fff-05",
+    name: "Whiptail Catfish",
+    scientificName: "Phractura ansorgii",
+    waterType: WaterType.Freshwater,
+    temperament: Temperament.Peaceful,
+    careLevel: CareLevel.Moderate,
+    minTankSize: 30,
+    diet: "Omnivore / Benthic Scavenger (Algae wafers, sinking pellets, bloodworms, biofilm)",
+    tempRange: "72°F - 79°F",
+    phRange: "6.0 - 7.5",
+    status: StockStatus.InStock,
+    description: "An extraordinary benthic West African whiptail catfish featuring an elongated slender body with armored scutes and sensory barbels adapted for sandy riverbed navigation.",
+    origin: "West Africa (Nigeria, Niger Delta, Cross River)",
+    image: whiptailCatfishImg,
+    isFeatured: true,
+  },
+  {
+    id: "fff-01",
+    name: "Congo Tetra",
+    scientificName: "Phenacogrammus interruptus",
+    waterType: WaterType.Freshwater,
+    temperament: Temperament.Peaceful,
+    careLevel: CareLevel.Easy,
+    minTankSize: 30,
+    diet: "Omnivore (Flakes, micro-pellets, daphnia, bloodworms)",
+    tempRange: "73°F - 82°F",
+    phRange: "6.0 - 7.5",
+    status: StockStatus.InStock,
+    description: "Iridescent schooling showpiece with flowing veil fins. Metallic scales reflecting shimmering gold, green, and violet hues.",
+    origin: "Congo River Basin (West & Central Africa)",
+    image: congoTetraImg,
+    isFeatured: true,
+  },
+  {
     id: "fff-03",
     name: "Blood Fish",
-    scientificName: "Erpetoichthys calabaricus",
+    scientificName: "Phractolaemus ansorgii",
     waterType: WaterType.Freshwater,
     temperament: Temperament.Peaceful,
     careLevel: CareLevel.Moderate,
     minTankSize: 45,
-    diet: "Carnivore (Bloodworms, sinking carnivore pellets, brine shrimp)",
+    diet: "Omnivore (Bloodworms, algae wafers, sinking micro-pellets, brine shrimp)",
     tempRange: "72°F - 82°F",
     phRange: "6.5 - 7.5",
     status: StockStatus.InStock,
-    description: "Deep copper-red eel-like bottom dweller with feathered fins and armor-like prehistoric scales.",
+    description: "A rare and remarkable West African freshwater fish featuring large scales, fan-like fins, tubular nasal appendages, and a unique hinged mouth adapted for grazing.",
     origin: "West African Rivers (Nigeria & Cameroon)",
     image: bloodFishImg,
     isFeatured: true,
@@ -294,23 +329,6 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     origin: "West African Estuaries (Lagos Delta Import)",
     image: "https://storage.googleapis.com/dala-prod-public-storage/attachments/66618de1-fc9f-45e0-b4d3-1b575900a875/1779838878836_1779838608486.png",
     isFeatured: false,
-  },
-  {
-    id: "wa-06",
-    name: "Reed Fish (Ropefish)",
-    scientificName: "Erpetoichthys calabaricus",
-    waterType: WaterType.Freshwater,
-    temperament: Temperament.Peaceful,
-    careLevel: CareLevel.Easy,
-    minTankSize: 45,
-    diet: "Carnivore (Carnivorous pellets, bloodworms, brine shrimp)",
-    tempRange: "72°F - 82°F",
-    phRange: "6.5 - 7.5",
-    status: StockStatus.InStock,
-    description: "An elongated, eel-like fish known for its prehistoric armor-like scales, friendly behavior, and peaceful nature. Requires a tight-fitting lid as they are known escape artists.",
-    origin: "West African Rivers (Prehistoric Specimen)",
-    image: ropeFishImg,
-    isFeatured: true,
   },
   {
     id: "wa-08",
