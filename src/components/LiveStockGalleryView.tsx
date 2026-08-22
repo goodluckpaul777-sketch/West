@@ -71,6 +71,9 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="eager"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/public/1000502148.jpg";
+                  }}
                 />
                 
                 <div className="absolute top-4 left-4 flex gap-2">

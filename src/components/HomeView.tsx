@@ -293,8 +293,8 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {featuredSpecies.slice(0, 4).map((species) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {featuredSpecies.map((species) => (
             <div
               key={species.id}
               onClick={() => onSelectSpecies(species)}
@@ -305,8 +305,11 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
                   src={species.image}
                   alt={`${species.name} (${species.scientificName}) - West African freshwater species`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-                  loading="lazy"
+                  loading="eager"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = nigerianFishHero;
+                  }}
                 />
                 
                 <div className="absolute top-3 left-3 z-10">
