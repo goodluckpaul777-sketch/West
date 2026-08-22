@@ -17,6 +17,7 @@ import {
   Plus
 } from "lucide-react";
 import { NEW_LIVESTOCK_DATA, StockFish } from "../data/newLivestock";
+import { getImageSrc } from "../utils";
 
 export default function LiveStockView() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -299,7 +300,7 @@ ${notes || "None"}
                                 title={`Click to view full photo of ${fish.commonName}`}
                               >
                                 <img 
-                                  src={fish.image} 
+                                  src={getImageSrc(fish.image)} 
                                   alt={`${fish.commonName} (${fish.scientificName})`} 
                                   className="w-full h-full object-cover"
                                   loading="eager"
@@ -387,7 +388,7 @@ ${notes || "None"}
                           onClick={() => setZoomedFish(fish)}
                         >
                           <img 
-                            src={fish.image} 
+                            src={getImageSrc(fish.image)} 
                             alt={`${fish.commonName} (${fish.scientificName})`}
                             className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
                             loading="eager"
@@ -582,7 +583,7 @@ ${notes || "None"}
 
             <div className="relative max-h-[60vh] bg-black flex items-center justify-center p-2">
               <img 
-                src={zoomedFish.image} 
+                src={getImageSrc(zoomedFish.image)} 
                 alt={zoomedFish.commonName}
                 className="max-h-[55vh] w-auto max-w-full object-contain rounded-lg"
                 referrerPolicy="no-referrer"

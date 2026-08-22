@@ -18,6 +18,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { FishSpecies, TabType } from "../types";
+import { getImageSrc } from "../utils";
 import nigerianFishHero from "../assets/images/nigerian_fish_hero_1785474681949.jpg";
 
 interface HomeViewProps {
@@ -36,7 +37,7 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
       <div className="relative rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl bg-black">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-10" />
         <img
-          src={nigerianFishHero}
+          src={getImageSrc(nigerianFishHero)}
           alt="Nigerian Freshwater Fish Farming and Exotic Specimen Export"
           className="w-full h-[550px] md:h-[650px] object-cover opacity-60 filter brightness-75 scale-105"
           referrerPolicy="no-referrer"
@@ -302,13 +303,13 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
             >
               <div className="relative h-48 overflow-hidden bg-black">
                 <img
-                  src={species.image}
+                  src={getImageSrc(species.image)}
                   alt={`${species.name} (${species.scientificName}) - West African freshwater species`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                   loading="eager"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = nigerianFishHero;
+                    (e.target as HTMLImageElement).src = getImageSrc(nigerianFishHero);
                   }}
                 />
                 
@@ -491,7 +492,7 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
             onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src={zoomedSpecies.image} 
+              src={getImageSrc(zoomedSpecies.image)} 
               alt={zoomedSpecies.name} 
               className="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300"
               style={{ transform: `scale(${zoomScale})` }}

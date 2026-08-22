@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Fish, Mail, Menu, X, Waves, BookOpen, Compass, ShieldCheck, ZoomIn, ClipboardList } from "lucide-react";
 import { TabType, FishSpecies } from "./types";

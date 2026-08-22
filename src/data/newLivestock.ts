@@ -26,7 +26,7 @@ export interface StockFish {
   sn: string;
   commonName: string;
   scientificName: string;
-  image?: string;
+  image?: string | any;
 }
 
 export const NEW_LIVESTOCK_DATA: StockFish[] = [

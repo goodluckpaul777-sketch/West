@@ -38,7 +38,7 @@ export interface FishSpecies {
   status: StockStatus;
   description: string;
   origin: string;
-  image: string;
+  image: string | any;
   isFeatured?: boolean;
 }
 

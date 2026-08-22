@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { FishSpecies, WaterType, Temperament, CareLevel } from "../types";
 import { LIVESTOCK_DATA } from "../data/livestock";
+import { getImageSrc } from "../utils";
 
 interface LiveStockGalleryViewProps {
   onInquire: (species: FishSpecies) => void;
@@ -66,7 +67,7 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
                 }}
               >
                 <img 
-                  src={fish.image} 
+                  src={getImageSrc(fish.image)} 
                   alt={`${fish.name} (${fish.scientificName}) - West African Fish Farm specimen`} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="eager"
@@ -250,7 +251,7 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
             onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src={zoomedFish.image} 
+              src={getImageSrc(zoomedFish.image)} 
               alt={zoomedFish.name} 
               className="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300"
               style={{ transform: `scale(${zoomScale})` }}
