@@ -73,7 +73,7 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
                   loading="eager"
                   referrerPolicy="no-referrer"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/public/1000502148.jpg";
+                    (e.target as HTMLImageElement).src = "/1000502148.jpg";
                   }}
                 />
                 

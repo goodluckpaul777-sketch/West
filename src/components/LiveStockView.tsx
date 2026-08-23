@@ -306,7 +306,7 @@ ${notes || "None"}
                                   loading="eager"
                                   referrerPolicy="no-referrer"
                                   onError={(e) => {
-                                    (e.target as HTMLImageElement).src = "/public/1000502148.jpg";
+                                    (e.target as HTMLImageElement).src = "/1000502148.jpg";
                                   }}
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
@@ -394,7 +394,7 @@ ${notes || "None"}
                             loading="eager"
                             referrerPolicy="no-referrer"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/public/1000502148.jpg";
+                              (e.target as HTMLImageElement).src = "/1000502148.jpg";
                             }}
                           />
                           <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
