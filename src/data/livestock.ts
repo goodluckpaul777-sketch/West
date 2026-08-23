@@ -3,7 +3,7 @@ import congoTetraImg from "../assets/images/1000502148.jpg";
 import africanPikeImg from "../assets/images/1000502149.jpg";
 import bloodFishImg from "../assets/images/1000502536.jpg";
 import dolphinMormyridImg from "../assets/images/1000502573.jpg";
-import ropeFishImg from "../assets/images/blood_fish_calabaricus_1785521995687.jpg";
+import ropeFishImg from "../assets/images/fish_proper-1.png";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
   {
