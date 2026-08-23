@@ -1,8 +1,7 @@
 import congoTetraImg from "../assets/images/1000502148.jpg";
-import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
+import africanPikeImg from "../assets/images/1000502149.jpg";
 import bloodFishImg from "../assets/images/1000502536.jpg";
 import dolphinMormyridImg from "../assets/images/1000502573.jpg";
-import whiptailCatfishImg from "../assets/images/silver_hujeta_pike_1785521947885.jpg";
 import ropeFishImg from "../assets/images/blood_fish_calabaricus_1785521995687.jpg";
 
 // Direct High-Resolution CDN Images for West African Livestock
@@ -127,5 +126,5 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "95", commonName: "U.D.Catfish", scientificName: "Synodontis nigriventris" },
   { sn: "96", commonName: "Under Water Frogs", scientificName: "Pipa-pipa" },
   { sn: "97", commonName: "W.A.Tree Frogs", scientificName: "Hyperoluis species" },
-  { sn: "98", commonName: "Whiptail Catfish", scientificName: "Phractura ansorgi", image: whiptailCatfishImg }
+  { sn: "98", commonName: "Whiptail Catfish", scientificName: "Phractura ansorgi" }
 ];

@@ -26,6 +26,7 @@ export default function LiveStockGalleryView({ onInquire }: LiveStockGalleryView
   
   const filteredFishes = React.useMemo(() => {
     return [...LIVESTOCK_DATA]
+      .filter(fish => !!fish.image)
       .sort((a, b) => a.name.localeCompare(b.name))
       .filter(fish => 
         fish.name.toLowerCase().includes(searchTerm.toLowerCase()) || 

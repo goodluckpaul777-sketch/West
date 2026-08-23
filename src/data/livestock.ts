@@ -1,9 +1,8 @@
 import { FishSpecies, WaterType, Temperament, CareLevel, StockStatus } from "../types";
 import congoTetraImg from "../assets/images/1000502148.jpg";
-import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
+import africanPikeImg from "../assets/images/1000502149.jpg";
 import bloodFishImg from "../assets/images/1000502536.jpg";
 import dolphinMormyridImg from "../assets/images/1000502573.jpg";
-import whiptailCatfishImg from "../assets/images/silver_hujeta_pike_1785521947885.jpg";
 import ropeFishImg from "../assets/images/blood_fish_calabaricus_1785521995687.jpg";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
@@ -106,8 +105,8 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "An extraordinary benthic West African whiptail catfish featuring an elongated slender body with armored scutes and sensory barbels adapted for sandy riverbed navigation.",
     origin: "West Africa (Nigeria, Niger Delta, Cross River)",
-    image: whiptailCatfishImg,
-    isFeatured: true,
+    image: "",
+    isFeatured: false,
   },
   {
     id: "wa-store-01",
