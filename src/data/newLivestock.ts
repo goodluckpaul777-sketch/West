@@ -1,5 +1,5 @@
-import congoTetraImg from "../assets/images/IMG_20260823_124815.jpg";
-import africanPikeImg from "../assets/images/IMG_8615.JPG";
+import congoTetraImg from "../assets/images/1000502148.jpg";
+import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
 import bloodFishImg from "../assets/images/1000502536.jpg";
 import dolphinMormyridImg from "../assets/images/1000502573.jpg";
 import whiptailCatfishImg from "../assets/images/silver_hujeta_pike_1785521947885.jpg";
