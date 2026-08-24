@@ -1,9 +1,4 @@
 import { FishSpecies, WaterType, Temperament, CareLevel, StockStatus } from "../types";
-import congoTetraImg from "../assets/images/IMG_20260823_124815.jpg";
-import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
-import bloodFishImg from "../assets/images/1000502536.jpg";
-import dolphinMormyridImg from "../assets/images/1000502573.jpg";
-import ropeFishImg from "../assets/images/fish_proper-1.png";
 
 export const LIVESTOCK_DATA: FishSpecies[] = [
   {
@@ -20,7 +15,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "Iridescent schooling showpiece with flowing veil fins. Metallic scales reflecting shimmering gold, green, and violet hues.",
     origin: "Congo River Basin (West & Central Africa)",
-    image: congoTetraImg,
+    image: "/images/congo-tetra.jpg",
     isFeatured: true,
   },
   {
@@ -37,7 +32,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "An impressive, predatory African characin with a slender elongated body, diamond-patterned golden scales, and a sharp toothy mouth reminiscent of northern pikes.",
     origin: "West & Central Africa (Niger Basin, Cross River, Chari River)",
-    image: africanPikeImg,
+    image: "/images/african-pike.jpg",
     isFeatured: true,
   },
   {
@@ -54,7 +49,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "A rare and remarkable West African freshwater fish featuring large scales, fan-like fins, tubular nasal appendages, and a unique hinged mouth adapted for grazing.",
     origin: "West African Rivers (Nigeria & Cameroon)",
-    image: bloodFishImg,
+    image: "/images/blood-fish.jpg",
     isFeatured: true,
   },
   {
@@ -71,7 +66,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "Electro-sensing sand sifter with a long dolphin-like snout used for probing substrate for food in dark river bottoms.",
     origin: "East & Central Africa (Congo and Zambezi river systems)",
-    image: dolphinMormyridImg,
+    image: "/images/dolphin-mormyrid.jpg",
     isFeatured: true,
   },
   {
@@ -88,7 +83,7 @@ export const LIVESTOCK_DATA: FishSpecies[] = [
     status: StockStatus.InStock,
     description: "An extraordinary prehistoric serpentine fish with olive-green ganoid armor scales, expressive pectoral fins, and a peaceful bottom-dwelling temperament.",
     origin: "West Africa (Nigeria, Niger Delta, Cameroon)",
-    image: ropeFishImg,
+    image: "/images/rope-fish.png",
     isFeatured: true,
   },
   {

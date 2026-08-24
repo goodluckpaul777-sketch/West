@@ -1,21 +1,15 @@
-import congoTetraImg from "../assets/images/IMG_20260823_124815.jpg";
-import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
-import bloodFishImg from "../assets/images/1000502536.jpg";
-import dolphinMormyridImg from "../assets/images/1000502573.jpg";
-import ropeFishImg from "../assets/images/fish_proper-1.png";
-
 export interface StockFish {
   sn: string;
   commonName: string;
   scientificName: string;
-  image?: string | any;
+  image?: string;
 }
 
 export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "1", commonName: "Aba Babies", scientificName: "Gynachus niloticus" },
   { sn: "2", commonName: "Aba big sizes", scientificName: "Gynachus niloticus" },
   { sn: "3", commonName: "Aba medium sizes", scientificName: "Gynachus niloticus" },
-  { sn: "4", commonName: "Africa Pike", scientificName: "Hepsetus odoe", image: africanPikeImg },
+  { sn: "4", commonName: "Africa Pike", scientificName: "Hepsetus odoe", image: "/images/african-pike.jpg" },
   { sn: "5", commonName: "African Tiger (med)", scientificName: "Hydrocynus goliath" },
   { sn: "6", commonName: "African Tiger (small)", scientificName: "Hydrocynus goliath" },
   { sn: "7", commonName: "Alestes", scientificName: "Brycinus logipinis" },
@@ -31,16 +25,16 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "17", commonName: "Atya Shrimps (small)", scientificName: "Atya gabonensis" },
   { sn: "18", commonName: "Bifasciatus", scientificName: "Epiplatys bifasciatus" },
   { sn: "19", commonName: "Big Shrimps", scientificName: "Crustabus species" },
-  { sn: "20", commonName: "Blood Fish", scientificName: "Phractolaemus ansorgii", image: bloodFishImg },
+  { sn: "20", commonName: "Blood Fish", scientificName: "Phractolaemus ansorgii", image: "/images/blood-fish.jpg" },
   { sn: "21", commonName: "Blue Fish", scientificName: "Aplocheichys myersi" },
   { sn: "22", commonName: "Blue Panchare", scientificName: "Epiplatys species" },
   { sn: "23", commonName: "Butter Fly (med./big)", scientificName: "Pantodon bucholzi" },
   { sn: "24", commonName: "Butter Fly (small)", scientificName: "Pantodon bucholzi" },
   { sn: "25", commonName: "Chromidotilapia", scientificName: "Chromidotilapia guentheri" },
-  { sn: "26", commonName: "Congo Tetra", scientificName: "Phenacogrammus interruptus", image: congoTetraImg },
+  { sn: "26", commonName: "Congo Tetra", scientificName: "Phenacogrammus interruptus", image: "/images/congo-tetra.jpg" },
   { sn: "27", commonName: "Costae Tetra", scientificName: "Moenkhausia costae" },
   { sn: "28", commonName: "Debauwie", scientificName: "Eutropielus debauwei" },
-  { sn: "29", commonName: "Dolphins", scientificName: "Mormyrus longirostris / Mormyrus tapirus", image: dolphinMormyridImg },
+  { sn: "29", commonName: "Dolphins", scientificName: "Mormyrus longirostris / Mormyrus tapirus", image: "/images/dolphin-mormyrid.jpg" },
   { sn: "30", commonName: "Electric Catfish", scientificName: "Malapterurus electricus" },
   { sn: "31", commonName: "Electric fish (med./big)", scientificName: "Malapterurus electricus" },
   { sn: "32", commonName: "Electric fish (small)", scientificName: "Malapterurus electricus" },
@@ -98,7 +92,7 @@ export const NEW_LIVESTOCK_DATA: StockFish[] = [
   { sn: "84", commonName: "Rainbow Crab (small)", scientificName: "Cardiosoma armatum" },
   { sn: "85", commonName: "Red Eye", scientificName: "Arnoldichytis spilopterus" },
   { sn: "86", commonName: "Red Tail Alestes", scientificName: "Microalestes stormsi" },
-  { sn: "87", commonName: "Reed/Rope Fish", scientificName: "Erpetoichythys calabericus", image: ropeFishImg },
+  { sn: "87", commonName: "Reed/Rope Fish", scientificName: "Erpetoichythys calabericus", image: "/images/rope-fish.png" },
   { sn: "88", commonName: "Round Nose", scientificName: "Pollimyrus nigripinis" },
   { sn: "89", commonName: "Short Nose", scientificName: "Mercusenius angolensis" },
   { sn: "90", commonName: "Snake Head", scientificName: "Channa striata / Channa asiatica" },

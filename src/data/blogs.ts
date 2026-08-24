@@ -1,7 +1,4 @@
 import { BlogPost } from "../types";
-import congoTetraImg from "../assets/images/IMG_20260823_124815.jpg";
-import africanPikeImg from "../assets/images/IMG_20260823_132911.jpg";
-import bloodFishImg from "../assets/images/1000502536.jpg";
 
 export const BLOGS_DATA: BlogPost[] = [
   {
@@ -13,7 +10,7 @@ export const BLOGS_DATA: BlogPost[] = [
     author: "Alfred Uzoma, Chief Aquaculturist",
     readTime: "6 min read",
     category: "Species Spotlight & Care",
-    image: congoTetraImg,
+    image: "/images/congo-tetra.jpg",
     content: `The **Giant Mbu Pufferfish** (*Tetraodon mbu*) is undoubtedly one of the most intelligent, interactive, and awe-inspiring species available to experienced freshwater aquarists. Hailing from the swift, deep riverine environments of the Congo Basin in Central Africa, these magnificent fish require meticulous water parameters and specialized care.
 
 At **West Africa Fish Farm (WAGFF)**, we collect wild specimens with certified, eco-friendly river nets. Here is our professional breakdown of how to prepare, acclimate, and sustain these giants in your private aquarium.
@@ -49,7 +46,7 @@ By maintaining high water quality and providing an authentic, shell-rich diet, y
     author: "Alfred Uzoma, Chief Aquaculturist",
     readTime: "8 min read",
     category: "Quarantine & Logistics",
-    image: africanPikeImg,
+    image: "/images/african-pike.jpg",
     content: `Few fish evoke as much excitement and respect as the **African Tigerfish** (*Hydrocynus vittatus*). Featuring a hydrodynamic body, brilliant silver scales, striking horizontal orange-and-black stripes, and a mouth filled with razor-sharp interlocking teeth, this species represents the absolute peak of freshwater predatory fish.
 
 As direct exporters based in Lagos, Nigeria, our team at **West Africa Fish Farm** excels in the delicate art of harvesting, stabilizing, and air-freighting this highly sensitive species globally.
@@ -81,7 +78,7 @@ Keeping an African Tigerfish is a badge of honor in the aquarium hobby. By inves
     author: "Alfred Uzoma, Chief Aquaculturist",
     readTime: "5 min read",
     category: "Invertebrate Husbandry",
-    image: bloodFishImg,
+    image: "/images/blood-fish.jpg",
     content: `Despite its slightly intimidating name, the **Vampire Shrimp** (*Atya gabonensis*), also known as the Viper Shrimp or Gabon Shrimp, is one of the most gentle and peaceful invertebrates you can add to your freshwater aquarium. These fascinating creatures do not possess claws; instead, their front limbs have evolved into delicate, fan-like brushes used to filter micro-organisms and organic particles from water currents.
 
 Native to the rapid forest streams of West Africa, their unique behavior and deep cobalt-blue armor make them highly sought after. Here is how to keep them healthy.
