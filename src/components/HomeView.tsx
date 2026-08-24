@@ -308,9 +308,6 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                   loading="eager"
                   referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = getImageSrc(nigerianFishHero);
-                  }}
                 />
                 
                 <div className="absolute top-3 left-3 z-10">

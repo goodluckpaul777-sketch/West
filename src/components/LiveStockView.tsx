@@ -305,9 +305,6 @@ ${notes || "None"}
                                   className="w-full h-full object-cover"
                                   loading="eager"
                                   referrerPolicy="no-referrer"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).src = "/1000502148.jpg";
-                                  }}
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center transition-opacity">
                                   <ZoomIn className="w-3.5 h-3.5 text-yellow-400" />
@@ -393,9 +390,6 @@ ${notes || "None"}
                             className="w-full h-full object-cover group-hover/cardimg:scale-105 transition-transform duration-300"
                             loading="eager"
                             referrerPolicy="no-referrer"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = "/1000502148.jpg";
-                            }}
                           />
                           <div className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 text-yellow-400 border border-yellow-500/30">
                             <ZoomIn className="w-3.5 h-3.5" />
