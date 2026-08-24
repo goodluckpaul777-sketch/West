@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { FishSpecies, TabType } from "../types";
 import { getImageSrc } from "../utils";
+import { nigerianFishHeroImg as nigerianFishHero } from "../data/specimenImages";
 
 interface HomeViewProps {
   featuredSpecies: FishSpecies[];
@@ -36,7 +37,7 @@ export default function HomeView({ featuredSpecies, setTab, onZoomLogo, onSelect
       <div className="relative rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl bg-black">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-10" />
         <img
-          src="/images/nigerian-fish-hero.jpg"
+          src={nigerianFishHero}
           alt="Nigerian Freshwater Fish Farming and Exotic Specimen Export"
           className="w-full h-[550px] md:h-[650px] object-cover opacity-60 filter brightness-75 scale-105"
           referrerPolicy="no-referrer"
